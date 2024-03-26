@@ -22,10 +22,10 @@ class DatabaseSeeder extends Seeder
 */
         \App\Models\User::factory(10)->create();
         \App\Models\Product::factory(20)->create();
+        \App\Models\Customer::factory(10)->create();
         \App\Models\Category::factory(5)->create();
         \App\Models\SalesOrder::factory(15)->create();
         \App\Models\SalesOrderItem::factory(50)->create();
-        \App\Models\Customer::factory(10)->create();
         \App\Models\Role::factory(3)->create();
         \App\Models\RoleUser::factory(20)->create();
         \App\Models\ProductAttribute::factory(5)->create();

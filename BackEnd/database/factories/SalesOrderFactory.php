@@ -20,7 +20,7 @@ class SalesOrderFactory extends Factory
         return [
             'user_id' => $this->faker->numberBetween(1, 10),
             //'customer_id' => Customer::inRandomOrder()->first(),
-            'customer_id' => Customer::factory()->create()->id,
+            'customer_id' => Customer::inRandomOrder()->first()->id,
             'total_amount' => $this->faker->randomFloat(2, 10, 1000),
         ];
     }

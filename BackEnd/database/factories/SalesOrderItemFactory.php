@@ -18,16 +18,19 @@ class SalesOrderItemFactory extends Factory
      */
     public function definition(): array
     {
+
+        $quantity = $this->faker->numberBetween(1, 10);
+        $unitPrice = $this->faker->randomFloat(2, 10, 100);
         return [
             'sales_order_id' => function () {
-                return SalesOrder::factory()->create()->id;
+                return SalesOrder::inRandomOrder()->first()->id;
             },
             'product_id' => function () {
-                return Product::factory()->create()->id;
+                return Product::inRandomOrder()->first()->id;
             },
-            'quantity' => $this->faker->numberBetween(1, 10),
-            'unit_price' => $this->faker->randomFloat(2, 10, 100),
-            'total_price' => $this->faker->randomFloat(2, 50, 500),
+            'quantity' => $quantity,
+            'unit_price' => $unitPrice,
+            'total_price' => ($quantity * $unitPrice)
         ];
     }
 }
